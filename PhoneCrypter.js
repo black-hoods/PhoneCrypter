@@ -35,7 +35,7 @@ class PhoneCrypter{
 		for(let char in message){
 			let n = PhoneCrypter.letterKey[message[char].toLowerCase()];
 
-			if(n){
+			if(n != null){
 				cryptedMessage += n;
 			}
 		}
