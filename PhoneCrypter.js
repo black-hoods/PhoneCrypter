@@ -1,41 +1,54 @@
 class PhoneCrypter{
-	static letterKey = {
-		'a' : 2,
-		'b' : 2,
-		'c' : 2,
-		'd' : 3,
-		'e' : 3,
-		'f' : 3,
-		'g' : 4,
-		'h' : 4,
-		'i' : 4,
-		'j' : 5,
-		'k' : 5,
-		'l' : 5,
-		'm' : 6,
-		'n' : 6,
-		'o' : 6,
-		'p' : 7,
-		'q' : 7,
-		'r' : 7,
-		's' : 7,
-		't' : 8,
-		'u' : 8,
-		'v' : 8,
-		'w' : 9,
-		'x' : 9,
-		'y' : 9,
-		'z' : 9,
-		' ' : 0,
+	static charCode = {
+		'a' : 12,
+		'b' : 22,
+		'c' : 32,
+		'd' : 13,
+		'e' : 23,
+		'f' : 33,
+		'g' : 14,
+		'h' : 24,
+		'i' : 34,
+		'j' : 15,
+		'k' : 25,
+		'l' : 35,
+		'm' : 16,
+		'n' : 26,
+		'o' : 36,
+		'p' : 17,
+		'q' : 27,
+		'r' : 37,
+		's' : 47,
+		't' : 18,
+		'u' : 28,
+		'v' : 38,
+		'w' : 19,
+		'x' : 29,
+		'y' : 39,
+		'z' : 49,
+		'1' : 1,
+		'2' : 42,
+		'3' : 43,
+		'4' : 44,
+		'5' : 45,
+		'6' : 46,
+		'7' : 57,
+		'8' : 48,
+		'9' : 59,
+		'0' : 20
 	}
 
-	static crypt(message){
+	static crypt(message, options){
 		let cryptedMessage = '';
 
 		for(let char in message){
-			let n = PhoneCrypter.letterKey[message[char].toLowerCase()];
+			let n = PhoneCrypter.charCode[message[char].toLowerCase()];
 
 			if(n != null){
+				if(options.dashed && char > 0){
+					cryptedMessage += '-';
+				}
+
 				cryptedMessage += n;
 			}
 		}
@@ -44,6 +57,10 @@ class PhoneCrypter{
 	}
 
 	static parse(cryptedMessage){
+
+	}
+
+	static getCharFromCode(key){
 
 	}
 }
